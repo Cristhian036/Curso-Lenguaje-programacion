@@ -1,19 +1,14 @@
+#FUNCION ANONIMA
 
 import math
-def suma(x, y):
-    return x + y
-def resta(x, y):
-    return x - y
-def multiplicacion(x, y):
-    return x * y
-def division(x, y):
-    return x / y if y != 0 else "indefinido"
-def potencia(x, y):
-    return x ** y
-def raiz_cuadrada(x):
-    return math.sqrt(x) if x >= 0 else "indefinido"
-def raiz_cubica(x):
-    return x ** (1/3)
+suma = lambda x, y: x + y
+resta = lambda x, y: x - y
+multiplicacion = lambda x, y: x * y
+division = lambda x, y: x / y if y != 0 else "indefinido"
+potencia = lambda x, y: x ** y
+raiz_cuadrada = lambda x: math.sqrt(x) if x >= 0 else "indefinido"
+raiz_cubica = lambda x: x ** (1/3)
+
 def menu():
     print("\nSeleccione una operacion:")
     print("1. Suma")
@@ -24,8 +19,8 @@ def menu():
     print("6. Raiz cuadrada")
     print("7. Raiz cubica")
 
-a = int(input("Ingrese el 1er num: "))
-b = int(input("Ingrese el 2do num: "))
+a = int(input("Ingrese el 1er numero: "))
+b = int(input("Ingrese el 2do numero: "))
 
 menu()
 opcion = int(input("Elija una operacion: "))

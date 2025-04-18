@@ -1,14 +1,14 @@
-
+#FUNCION PARAMETRIZADA POR DEFECTO
 import math
-def suma(x, y):
+def suma(x=0, y=0):
     return x + y
-def resta(x, y):
+def resta(x=0, y=0):
     return x - y
-def multiplicacion(x, y):
+def multiplicacion(x=0, y=0):
     return x * y
-def division(x, y):
+def division(x=0, y=0):
     return x / y if y != 0 else "indefinido"
-def potencia(x, y):
+def potencia(x=0, y=0):
     return x ** y
 def raiz_cuadrada(x):
     return math.sqrt(x) if x >= 0 else "indefinido"
