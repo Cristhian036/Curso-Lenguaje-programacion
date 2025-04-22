@@ -1,38 +1,15 @@
 import math
-import typing as t
 from functools import reduce
 
-num = t.TypeVar("num", int, float)
+def suma(numeros): return reduce(lambda a, b: a + b, numeros)
+def resta(numeros): return reduce(lambda a, b: a - b, numeros)
+def multiplicacion(numeros): return reduce(lambda a, b: a * b, numeros)
+def division(numeros): return reduce(lambda a, b: a / b if b != 0 else float('inf'), numeros)
+def potencia(numeros): return list(map(lambda x: x ** numeros[-1], numeros[:-1]))
+def raiz_cuadrada(numeros): return list(map(lambda x: math.sqrt(x) if x >= 0 else "indefinido", numeros))
+def raiz_cubica(numeros): return list(map(lambda x: x ** (1/3), numeros))
 
-def operation(x: num, y: num, fun):
-    return fun(x, y)
-def suma(x: num, y: num) -> num: 
-    return x + y
-def resta(x: num, y: num) -> num: 
-    return x - y
-def multiplicacion(x: num, y: num) -> num: 
-    return x * y
-def division(x: num, y: num) -> float: 
-    return x / y if y != 0 else float("inf")
-def potencia(x: num, y: num) -> num: 
-    return x ** y
-def raiz_cuadrada(x: num) -> float: 
-    return math.sqrt(x) if x >= 0 else float("nan")
-def raiz_cubica(x: num) -> float: 
-    return x ** (1 / 3)
-operaciones = {
-    "1": suma, 
-    "2": resta, 
-    "3": multiplicacion,
-    "4": division, 
-    "5": potencia, 
-    "6": raiz_cuadrada, 
-    "7": raiz_cubica,
-}
-
-while True:
-    a, b = float(input("\nIngrese el 1er número: ")), float(input("Ingrese el 2do número: "))
-
+def menu():
     print("\nSeleccione una operación:")
     print("1. Suma")
     print("2. Resta")
@@ -41,12 +18,27 @@ while True:
     print("5. Potencia")
     print("6. Raiz cuadrada")
     print("7. Raiz cubica")
-    
-    opcion = input("Elija una operación: ")
+    print("8. Salir")
 
-    if opcion in operaciones:
-        funcion = operaciones[opcion]
-        if opcion in ["6", "7"]:
-            print(f"Resultado de {a}: {funcion(a)}\nResultado de {b}: {funcion(b)}")
-        else:
-  
+while True:
+    menu()
+    opcion = int(input("Elija una operación: "))
+
+    if opcion in range(1, 8):
+        numeros = list(map(float, input("Ingrese Numeros separados por espacio: ").split()))
+        funciones = [suma, resta, multiplicacion, division, potencia, raiz_cuadrada, raiz_cubica]
+        nombres = ["Suma", "Resta", "Multiplicacion", "Division", "Potencia", "Raiz cuadrada", "Raiz cubica"]
+        resultado = funciones[opcion - 1](numeros)
+        print(f"\nOperación realizada: {nombres[opcion - 1]}")
+        print(f"Numeros ingresados: {numeros}")
+        print(f"Resultado: {resultado}")
+    elif opcion == 8:
+        print("Finalizado")
+        break
+    else:
+        print("no valido")
+
+    continuar = input("\n¿Desea realizar otra operación? (s/n): ").lower()
+    if continuar != 's':
+        print("Finalizado")
+        break

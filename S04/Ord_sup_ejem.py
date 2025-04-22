@@ -10,7 +10,7 @@ print(resultado_1)
 resultado_2= operation(16,squared)
 print(resultado_2)
 
-print("\nfun_orden_filter")
+print("\nfun orden filter")
 integer=[1,2,3,4,5,6,7,8,9,10,11,12]
 even = list(filter(lambda x: x%2 == 0,integer))
 print(even)
