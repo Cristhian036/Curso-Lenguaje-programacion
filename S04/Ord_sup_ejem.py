@@ -1,3 +1,11 @@
+def orde_sup(fun):
+    fun()
+    
+def greeting():
+    print('hello world')
+
+orde_sup(greeting)
+
 print("fun orden superior")
 def operation(x, fun):
     return fun(x)

@@ -2,7 +2,7 @@
 import math
 
 a = -10
-b = 0
+b = 8
 
 suma = a + b
 resta = a - b
